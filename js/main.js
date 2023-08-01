@@ -23,24 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   for (let i = 0; i < panoramas.length; i++) {
     viewer.add(panoramas[i]);
-    // panoramas[0].link(
-    //   viewer[1],
-    //   new THREE.Vector3(-3429.01, 1205.85, -3421.88),
-    //   300
-    // );
-    // panoramas[1].link(
-    //   panoramas[2],
-    //   new THREE.Vector3(-3429.01, 1205.85, -3421.88)
-    // );
-
-    // panoramas[0].link(
-    //   panoramas[2],
-    //   new THREE.Vector3(-1106.42, -4277.19, -5000.0)
-    // );
-    // panoramas[2].link(
-    //   panoramas[0],
-    //   new THREE.Vector3(2092.2, -159.02, -4530.91)
-    // );
   }
 
   function handlePanoramaClick(event) {
@@ -53,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     raycaster.setFromCamera(mouse, viewer.camera);
 
-    const intersects = raycaster.intersectObject(panorama1, true);
+    const intersects = raycaster.intersectObject(panoramas[0], true);
 
     if (intersects.length > 0) {
       const position = intersects[0].point;
@@ -66,3 +48,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   viewer.renderer.domElement.addEventListener("click", handlePanoramaClick);
 });
+
+// panoramas[0].link(
+//   panoramas[1],
+//   new THREE.Vector3(-3429.01, 1205.85, -3421.88),
+//   300
+// );
+// panoramas[1].link(
+//   panoramas[2],
+//   new THREE.Vector3(-3429.01, 1205.85, -3421.88)
+// );
+
+// panoramas[0].link(
+//   panoramas[2],
+//   new THREE.Vector3(-1106.42, -4277.19, -5000.0)
+// );
+// panoramas[2].link(panoramas[0], new THREE.Vector3(2092.2, -159.02, -4530.91));
